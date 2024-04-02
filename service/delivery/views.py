@@ -101,4 +101,4 @@ class CarRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
 
-start_scheduler()
+start_scheduler() #обновление локаций у машин раз в 3 минуты 
