@@ -17,10 +17,8 @@ class Command(BaseCommand):
     def load_locations_from_csv(self, file_path):
         with open(file_path, 'r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
-            row_count = 0
+
             for row in reader:
-                if row_count >= 100:
-                    break
                 city = row['city']
                 state = row['state_name']
                 postcode = row['zip']
@@ -38,4 +36,4 @@ class Command(BaseCommand):
                     self.stdout.write(self.style.SUCCESS(f'Локация создана: {location}'))
                 else:
                     self.stdout.write(self.style.SUCCESS(f'Локация уже существует: {location}'))
-                row_count += 1
+                
