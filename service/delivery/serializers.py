@@ -77,7 +77,7 @@ class CarsSerializer(serializers.ModelSerializer):
             location = Locations.objects.get(postcode=value)
             return location
         except Locations.DoesNotExist:
-            raise serializers.ValidationError("Location with this postcode does not exist.")
+            raise serializers.ValidationError("Локаций с указанным почтовым кодом не найдено")
 
     def update(self, instance, validated_data):
         location_instance = validated_data.pop('current_location', None)
